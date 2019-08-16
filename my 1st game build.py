@@ -115,13 +115,13 @@ class Player(pygame.sprite.Sprite):
 
     def update(self, pressed_keys):
         if pressed_keys[K_UP]:
-            self.rect.move_ip(0, -1)
+            self.rect.move_ip(0, -3)
         if pressed_keys[K_DOWN]:
-            self.rect.move_ip(0, 1)
+            self.rect.move_ip(0, 3)
         if pressed_keys[K_LEFT]:
-            self.rect.move_ip(-1, 0)
+            self.rect.move_ip(-3, 0)
         if pressed_keys[K_RIGHT]:
-            self.rect.move_ip(1, 0)
+            self.rect.move_ip(3, 0)
 
         # Keep player on the screen
         if self.rect.left < 0:
@@ -140,7 +140,7 @@ class Enemy(pygame.sprite.Sprite):
         self.surf = pygame.Surface((20, 10))
         self.surf.fill((255, 255, 255))
         self.rect = self.surf.get_rect(center=(820, random.randint(0, 600)))
-        self.speed = random.randint(1, 2)
+        self.speed = random.randint(5, 10)
 
     def update(self):
         self.rect.move_ip(-self.speed, 0)
